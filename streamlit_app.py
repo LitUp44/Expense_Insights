@@ -255,43 +255,6 @@ fig.add_annotation(
     align="center"
 )
 
-# Add the User's Distribution bar (stacked bar) with pie chart colors
-fig.add_trace(go.Bar(
-    x=[user_percentages[0]],  # Needs
-    y=["Your Distribution"],
-    orientation='h',
-    name="Your Needs",
-    marker=dict(color=user_colors[0], opacity=0.6),  # Slightly transparent for distinction
-    text=[f"{user_percentages[0]}%"],
-    textposition="inside",
-    insidetextanchor="middle",
-    hoverinfo="none"
-))
-
-fig.add_trace(go.Bar(
-    x=[user_percentages[1]],  # Wants
-    y=["Your Distribution"],
-    orientation='h',
-    name="Your Wants",
-    marker=dict(color=user_colors[1], opacity=0.6),
-    text=[f"{user_percentages[1]}%"],
-    textposition="inside",
-    insidetextanchor="middle",
-    hoverinfo="none"
-))
-
-fig.add_trace(go.Bar(
-    x=[user_percentages[2]],  # Savings
-    y=["Your Distribution"],
-    orientation='h',
-    name="Your Savings",
-    marker=dict(color=user_colors[2], opacity=0.6),
-    text=[f"{user_percentages[2]}%"],
-    textposition="inside",
-    insidetextanchor="middle",
-    hoverinfo="none"
-))
-
 # Customize layout to stack bars and properly align them
 fig.update_layout(
     barmode="stack",  # Stack the bars
