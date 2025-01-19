@@ -32,28 +32,20 @@ def set_input_styles():
     st.markdown(
         """
         <style>
-        /* Savings input styling */
-        div[data-testid="stNumberInput"][id="savings"] {
+        div[data-testid="stNumberInput"][aria-labelledby="savings-label"] {
             background-color: #d1ffd6; /* Light green */
             border-radius: 5px;
             padding: 10px;
-            margin-bottom: 10px;
         }
-
-        /* Wants input styling */
-        div[data-testid="stNumberInput"][id="wants"] {
+        div[data-testid="stNumberInput"][aria-labelledby="wants-label"] {
             background-color: #ffd6d6; /* Light red */
             border-radius: 5px;
             padding: 10px;
-            margin-bottom: 10px;
         }
-
-        /* Needs input styling */
-        div[data-testid="stNumberInput"][id="needs"] {
+        div[data-testid="stNumberInput"][aria-labelledby="needs-label"] {
             background-color: #d6e6ff; /* Light blue */
             border-radius: 5px;
             padding: 10px;
-            margin-bottom: 10px;
         }
         </style>
         """,
@@ -150,10 +142,18 @@ Finally **Savings** - how much on average goes to saving or investing of any kin
 # Apply custom styles
 set_input_styles()
 
-# Display inputs with custom colors
-savings_total = st.number_input("Total Savings", min_value=0, step=100, value=1000, key="savings")
-wants_total = st.number_input("Total Wants", min_value=0, step=100, value=1000, key="wants")
-needs_total = st.number_input("Total Needs", min_value=0, step=100, value=3000, key="needs")
+# Savings input
+st.markdown('<label id="savings-label" class="input-label">Total Savings:</label>', unsafe_allow_html=True)
+savings_total = st.number_input("Total Savings", min_value=0, step=100, value=1000, key="savings", label_visibility="hidden")
+
+# Wants input
+st.markdown('<label id="wants-label" class="input-label">Total Wants:</label>', unsafe_allow_html=True)
+wants_total = st.number_input("Total Wants", min_value=0, step=100, value=1000, key="wants", label_visibility="hidden")
+
+# Needs input
+st.markdown('<label id="needs-label" class="input-label">Total Needs:</label>', unsafe_allow_html=True)
+needs_total = st.number_input("Total Needs", min_value=0, step=100, value=3000, key="needs", label_visibility="hidden")
+
 
 
 # Calculate the total income based on the inputs
@@ -205,7 +205,7 @@ st.markdown(f"**Needs:** **{needs_percentage:.2f}%**")
 # Get and display insights
 insight = get_insight(savings_cat, wants_cat, needs_cat)
 st.markdown(f"""
-<div style="background-color: #f1f1f1; border-radius: 10px; padding: 10px; margin-top: 10px; font-size: 16px; font-weight: bold;">
+<div style="background-color: #FF9E70; border-radius: 10px; padding: 10px; margin-top: 10px; font-size: 16px; font-weight: bold;">
 📢 Insight: {insight}
 </div>
 """, unsafe_allow_html=True)
@@ -219,4 +219,4 @@ st.markdown("---")
 # Display formatted results
 st.markdown("### Reference Values")
 
-st.image("referenceValues.png", use_container_width=False, width=700)
+st.image("referenceValues3.png", use_container_width=False, width=700)
