@@ -176,8 +176,6 @@ st.markdown(f"""
 # Display the pie chart
 st.plotly_chart(fig)
 
-user_percentages = [needs_percentage, wants_percentage, savings_percentage]  # Replace with actual Needs, Wants, Savings percentages
-
 # Ideal percentages
 ideal_percentages = [60, 20, 20]
 
@@ -190,19 +188,7 @@ reference_colors = ["lightgreen", "mediumseagreen", "darkgreen"]  # Shades of gr
 # Create the figure
 fig = go.Figure()
 
-# Add the Ideal Distribution bar (stacked bar) with reference colors
-fig.add_trace(go.Bar(
-    x=[ideal_percentages[0]],  # Needs
-    y=["Ideal Distribution"],
-    orientation='h',
-    name="Ideal Needs",
-    marker=dict(color=reference_colors[0]),
-    text=[f"{ideal_percentages[0]}%"],
-    textposition="inside",
-    insidetextanchor="middle",
-    hoverinfo="none"  # Hide hover info for color labels
-))
-
+# Add labels
 fig.add_trace(go.Bar(
     x=[ideal_percentages[2]],  # Savings
     y=["Ideal Distribution"],
@@ -242,7 +228,7 @@ fig.add_trace(go.Bar(
 # Customize layout to stack bars and properly align them
 fig.update_layout(
     barmode="stack",  # Stack the bars
-    height=300,  # Adjust height for better readability
+    height=100,  # Adjust height for better readability
     margin=dict(t=10, b=30, l=10, r=10),
     xaxis=dict(title="Percentage", range=[0, 100], showgrid=False),
 )
