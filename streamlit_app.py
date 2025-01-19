@@ -183,7 +183,6 @@ ideal_percentages = [60, 20, 20]
 
 user_colors = ["green", "yellow", "red"]  # Color scheme for user comparison bars
 
-# Categories and colors for reference (shades of green)
 reference_colors = ["lightgreen", "mediumseagreen", "darkgreen"]  # Shades of green for reference bars
 
 # Create the figure
@@ -198,7 +197,8 @@ fig.add_trace(go.Bar(
     marker=dict(color=reference_colors[0]),
     text=[f"{ideal_percentages[0]}%"],
     textposition="inside",
-    insidetextanchor="middle"
+    insidetextanchor="middle",
+    hoverinfo="none"  # Hide hover info for color labels
 ))
 
 fig.add_trace(go.Bar(
@@ -209,7 +209,8 @@ fig.add_trace(go.Bar(
     marker=dict(color=reference_colors[1]),
     text=[f"{ideal_percentages[1]}%"],
     textposition="inside",
-    insidetextanchor="middle"
+    insidetextanchor="middle",
+    hoverinfo="none"
 ))
 
 fig.add_trace(go.Bar(
@@ -220,8 +221,37 @@ fig.add_trace(go.Bar(
     marker=dict(color=reference_colors[2]),
     text=[f"{ideal_percentages[2]}%"],
     textposition="inside",
-    insidetextanchor="middle"
+    insidetextanchor="middle",
+    hoverinfo="none"
 ))
+
+# Add titles for the reference bars (Needs, Wants, Savings)
+fig.add_annotation(
+    x=ideal_percentages[0] / 2,  # Positioning the text inside the bar
+    y=0,  # Aligning to the top of the stacked bars
+    text="Needs",
+    showarrow=False,
+    font=dict(size=12, color="black"),
+    align="center"
+)
+
+fig.add_annotation(
+    x=ideal_percentages[1] / 2,
+    y=0,
+    text="Wants",
+    showarrow=False,
+    font=dict(size=12, color="black"),
+    align="center"
+)
+
+fig.add_annotation(
+    x=ideal_percentages[2] / 2,
+    y=0,
+    text="Savings",
+    showarrow=False,
+    font=dict(size=12, color="black"),
+    align="center"
+)
 
 # Add the User's Distribution bar (stacked bar) with pie chart colors
 fig.add_trace(go.Bar(
@@ -229,10 +259,11 @@ fig.add_trace(go.Bar(
     y=["Your Distribution"],
     orientation='h',
     name="Your Needs",
-    marker=dict(color=needs_color, opacity=0.6),  # Slightly transparent for distinction
-    text=[f"{user_percentages[0]}%.2f"],
+    marker=dict(color=user_colors[0], opacity=0.6),  # Slightly transparent for distinction
+    text=[f"{user_percentages[0]}%"],
     textposition="inside",
-    insidetextanchor="middle"
+    insidetextanchor="middle",
+    hoverinfo="none"
 ))
 
 fig.add_trace(go.Bar(
@@ -240,10 +271,11 @@ fig.add_trace(go.Bar(
     y=["Your Distribution"],
     orientation='h',
     name="Your Wants",
-    marker=dict(color=wants_color, opacity=0.6),
-    text=[f"{user_percentages[1]}%.2f"],
+    marker=dict(color=user_colors[1], opacity=0.6),
+    text=[f"{user_percentages[1]}%"],
     textposition="inside",
-    insidetextanchor="middle"
+    insidetextanchor="middle",
+    hoverinfo="none"
 ))
 
 fig.add_trace(go.Bar(
@@ -251,10 +283,11 @@ fig.add_trace(go.Bar(
     y=["Your Distribution"],
     orientation='h',
     name="Your Savings",
-    marker=dict(color=savings_color, opacity=0.6),
-    text=[f"{user_percentages[2]}%.2f"],
+    marker=dict(color=user_colors[2], opacity=0.6),
+    text=[f"{user_percentages[2]}%"],
     textposition="inside",
-    insidetextanchor="middle"
+    insidetextanchor="middle",
+    hoverinfo="none"
 ))
 
 # Customize layout to stack bars and properly align them
