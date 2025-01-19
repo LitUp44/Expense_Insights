@@ -67,6 +67,20 @@ def set_input_styles():
         .number-input {
             width: 150px;  /* Set fixed width for the input box */
         }
+          .link-button {
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #233C64;  /* Fixed background color */
+            color: #F5724B;  /* Fixed text color */
+        }
+        .link-button:hover {
+            opacity: 0.9;  /* Slight opacity change when hovered */
+        }
         </style>
         """,
         unsafe_allow_html=True,
@@ -244,3 +258,15 @@ st.markdown("---")
 st.markdown("### Reference Values")
 
 st.image("referenceValues3.png", use_container_width=False, width=700)
+
+# Add a button with a link at the bottom with predefined colors
+st.markdown(
+    f"""
+    <div style="text-align:center;">
+        <a href="https://alignedfinances.com" target="_blank" class="link-button">
+            Learn more!
+        </a>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
