@@ -176,7 +176,7 @@ st.markdown(f"""
 # Display the pie chart
 st.plotly_chart(fig)
 
-user_percentages = [70, 15, 15]  # Replace with actual Needs, Wants, Savings percentages
+user_percentages = [needs_percentage, needs_percentage, savings_percentage]  # Replace with actual Needs, Wants, Savings percentages
 
 # Ideal percentages
 ideal_percentages = [60, 20, 20]
