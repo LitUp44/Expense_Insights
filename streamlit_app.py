@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 
 # Function to categorize ratios for each category
 def categorize(value, category):
@@ -174,4 +175,34 @@ st.markdown(f"""
 
 # Display the pie chart
 st.plotly_chart(fig)
+
+# Data for the reference bar
+categories = ["Needs", "Wants", "Savings"]
+percentages = [60, 20, 20]
+colors = ["green", "yellow", "red"]  # Match your pie chart colors
+
+# Create the horizontal bar chart
+fig = go.Figure(go.Bar(
+    x=percentages,
+    y=["Ideal Distribution"],  # Single row for stacked bar
+    orientation='h',
+    marker=dict(color=colors),
+    text=[f"{p}%" for p in percentages],  # Add labels
+    textposition="inside",
+    insidetextanchor="middle"
+))
+
+# Customize layout
+fig.update_layout(
+    barmode="stack",
+    height=100,
+    margin=dict(t=10, b=10, l=10, r=10),
+    xaxis=dict(title="Percentage", range=[0, 100], showgrid=False),
+    yaxis=dict(showticklabels=False),  # Hide y-axis label
+    showlegend=False
+)
+
+# Add explanatory text
+st.markdown("The bar below illustrates the recommended allocation for your budget:")
+st.plotly_chart(fig, use_container_width=True)
 
