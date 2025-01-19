@@ -176,4 +176,4 @@ st.markdown(f"""
 # Display the pie chart
 st.plotly_chart(fig)
 
-st.image("referenceValues.png", use_container_width=False, width=400)
+st.image("Frame 2.png", use_container_width=False, width=400)
