@@ -261,13 +261,11 @@ fig.update_layout(
     height=300,  # Adjust height for better readability
     margin=dict(t=10, b=30, l=10, r=10),
     xaxis=dict(title="Percentage", range=[0, 100], showgrid=False),
-    yaxis=dict(title="", showticklabels=True),  # Show the labels for Ideal/Yours
-    title_text="Comparison: Ideal vs. Your Allocation",
     title_x=0.5,
     showlegend=True,
     legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="center", x=0.5),
 )
 
 # Display the chart in Streamlit
-st.markdown("### Reference and Comparison")
+st.markdown("### Reference Values")
 st.plotly_chart(fig, use_container_width=True)
