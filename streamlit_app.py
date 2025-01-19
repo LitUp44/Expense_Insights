@@ -94,7 +94,7 @@ def get_insight(savings_cat, wants_cat, needs_cat):
 
 # Streamlit app layout
 
-st.image("alignedLogo.png", use_column_width=False, width=700)
+st.image("alignedLogo.png", use_container_width=False, width=700)
 
 
 st.title("Financial Fitness Calculator")
