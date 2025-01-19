@@ -51,6 +51,15 @@ def set_input_styles():
             margin-bottom: 5px;
             display: block;
         }
+        .savings-label {
+            color: #FFEAE6; /* Dark green */
+        }
+        .wants-label {
+            color: #FFEAE6; /* Dark red */
+        }
+        .needs-label {
+            color: #FFEAE6; /* Steel blue */
+        }
         </style>
         """,
         unsafe_allow_html=True,
