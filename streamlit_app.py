@@ -70,16 +70,16 @@ def set_input_styles():
           .link-button {
             text-align: center;
             padding: 10px 20px;
-            border-radius: 5px;
+            border-radius: 20px;
             font-size: 16px;
             text-decoration: none;
             display: inline-block;
             margin-top: 20px;
             background-color: #233C64;  /* Fixed background color */
-            color: #F5724B;  /* Fixed text color */
+            color: #FFEAE6;  /* Fixed text color */
         }
         .link-button:hover {
-            opacity: 0.9;  /* Slight opacity change when hovered */
+            opacity: 0.8;  /* Slight opacity change when hovered */
         }
         </style>
         """,
@@ -258,6 +258,9 @@ st.markdown("---")
 st.markdown("### Reference Values")
 
 st.image("referenceValues3.png", use_container_width=False, width=700)
+
+# Display formatted results
+st.markdown("### Want to understand the concepts behind financial fitness? ")
 
 # Add a button with a link at the bottom with predefined colors
 st.markdown(
