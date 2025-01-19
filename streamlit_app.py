@@ -236,12 +236,10 @@ st.markdown("---")
 
 # Display formatted results
 st.markdown("### Results")
-st.markdown(f"**Savings:** **{savings_percentage:.2f}%**")
-st.markdown(f"**Wants:** **{wants_percentage:.2f}%**")
-st.markdown(f"**Needs:** **{needs_percentage:.2f}%**")
 
 # Get and display insights
 insight = get_insight(savings_cat, wants_cat, needs_cat)
+
 st.markdown(f"""
 <div style="background-color: #FF9E70; border-radius: 10px; padding: 10px; margin-top: 10px; font-size: 16px; font-weight: bold;">
 📢 Insight: {insight}
