@@ -234,7 +234,7 @@ fig.add_annotation(
     text="Needs",
     showarrow=False,
     font=dict(size=12, color="black"),
-    align="center"
+    align="left"
 )
 
 fig.add_annotation(
@@ -252,7 +252,7 @@ fig.add_annotation(
     text="Savings",
     showarrow=False,
     font=dict(size=12, color="black"),
-    align="center"
+    align="right"
 )
 
 # Customize layout to stack bars and properly align them
@@ -261,9 +261,6 @@ fig.update_layout(
     height=300,  # Adjust height for better readability
     margin=dict(t=10, b=30, l=10, r=10),
     xaxis=dict(title="Percentage", range=[0, 100], showgrid=False),
-    title_x=0.5,
-    showlegend=True,
-    legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="center", x=0.5),
 )
 
 # Display the chart in Streamlit
