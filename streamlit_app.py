@@ -176,33 +176,54 @@ st.markdown(f"""
 # Display the pie chart
 st.plotly_chart(fig)
 
-# Data for the reference bar
-categories = ["Needs", "Wants", "Savings"]
-percentages = [60, 20, 20]
-colors = ["green", "yellow", "red"]  # Match your pie chart colors
+user_percentages = [70, 15, 15]  # Replace with actual Needs, Wants, Savings percentages
 
-# Create the horizontal bar chart
-fig = go.Figure(go.Bar(
-    x=percentages,
-    y=["Ideal Distribution"],  # Single row for stacked bar
+# Ideal percentages
+ideal_percentages = [60, 20, 20]
+
+# Categories and colors
+categories = ["Needs", "Wants", "Savings"]
+colors = ["green", "yellow", "red"]  # Match the colors used in your app
+
+# Create the figure
+fig = go.Figure()
+
+# Add the ideal distribution bar
+fig.add_trace(go.Bar(
+    x=ideal_percentages,
+    y=["Ideal Distribution"],
     orientation='h',
     marker=dict(color=colors),
-    text=[f"{p}%" for p in percentages],  # Add labels
+    text=[f"{p}%" for p in ideal_percentages],
     textposition="inside",
-    insidetextanchor="middle"
+    insidetextanchor="middle",
+    name="Ideal"
 ))
 
-# Customize layout
+# Add the user's actual distribution bar
+fig.add_trace(go.Bar(
+    x=user_percentages,
+    y=["Your Distribution"],
+    orientation='h',
+    marker=dict(color=colors, opacity=0.6),  # Slightly transparent for distinction
+    text=[f"{p}%" for p in user_percentages],
+    textposition="inside",
+    insidetextanchor="middle",
+    name="Yours"
+))
+
+# Customize the layout
 fig.update_layout(
     barmode="stack",
-    height=100,
-    margin=dict(t=10, b=10, l=10, r=10),
+    height=200,
+    margin=dict(t=10, b=30, l=10, r=10),
     xaxis=dict(title="Percentage", range=[0, 100], showgrid=False),
-    yaxis=dict(showticklabels=False),  # Hide y-axis label
-    showlegend=False
+    yaxis=dict(title="", showticklabels=True),  # Show the labels for Ideal/Yours
+    legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="center", x=0.5),
+    title_text="Comparison: Ideal vs. Your Allocation",
+    title_x=0.5,
 )
 
-# Add explanatory text
-st.markdown("The bar below illustrates the recommended allocation for your budget:")
+# Display the chart in Streamlit
+st.markdown("### Reference and Comparison")
 st.plotly_chart(fig, use_container_width=True)
-
