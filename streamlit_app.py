@@ -75,7 +75,7 @@ def set_input_styles():
             text-decoration: none;
             display: inline-block;
             margin-top: 20px;
-            background-color: #233C64;  /* Fixed background color */
+            background-color: #F5724B;  /* Fixed background color */
             color: #FFEAE6;  /* Fixed text color */
         }
         .link-button:hover {
