@@ -33,7 +33,7 @@ def set_input_styles():
         """
         <style>
         /* Savings input styling */
-        div[data-testid="stNumberInput"]:nth-child(1) {
+        div[data-testid="stNumberInput"][id="savings"] {
             background-color: #d1ffd6; /* Light green */
             border-radius: 5px;
             padding: 10px;
@@ -41,7 +41,7 @@ def set_input_styles():
         }
 
         /* Wants input styling */
-        div[data-testid="stNumberInput"]:nth-child(2) {
+        div[data-testid="stNumberInput"][id="wants"] {
             background-color: #ffd6d6; /* Light red */
             border-radius: 5px;
             padding: 10px;
@@ -49,7 +49,7 @@ def set_input_styles():
         }
 
         /* Needs input styling */
-        div[data-testid="stNumberInput"]:nth-child(3) {
+        div[data-testid="stNumberInput"][id="needs"] {
             background-color: #d6e6ff; /* Light blue */
             border-radius: 5px;
             padding: 10px;
@@ -150,13 +150,9 @@ Finally **Savings** - how much on average goes to saving or investing of any kin
 # Apply custom styles
 set_input_styles()
 
-# Savings input
+# Display inputs with custom colors
 savings_total = st.number_input("Total Savings", min_value=0, step=100, value=1000, key="savings")
-
-# Wants input
 wants_total = st.number_input("Total Wants", min_value=0, step=100, value=1000, key="wants")
-
-# Needs input
 needs_total = st.number_input("Total Needs", min_value=0, step=100, value=3000, key="needs")
 
 
