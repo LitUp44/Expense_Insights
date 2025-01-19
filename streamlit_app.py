@@ -204,6 +204,18 @@ fig.add_trace(go.Bar(
 ))
 
 fig.add_trace(go.Bar(
+    x=[ideal_percentages[2]],  # Savings
+    y=["Ideal Distribution"],
+    orientation='h',
+    name="Ideal Savings",
+    marker=dict(color=reference_colors[2]),
+    text=[f"{ideal_percentages[2]}%"],
+    textposition="inside",
+    insidetextanchor="middle",
+    hoverinfo="none"
+))
+
+fig.add_trace(go.Bar(
     x=[ideal_percentages[1]],  # Wants
     y=["Ideal Distribution"],
     orientation='h',
@@ -216,44 +228,16 @@ fig.add_trace(go.Bar(
 ))
 
 fig.add_trace(go.Bar(
-    x=[ideal_percentages[2]],  # Savings
+    x=[ideal_percentages[0]],  # Needs
     y=["Ideal Distribution"],
     orientation='h',
-    name="Ideal Savings",
-    marker=dict(color=reference_colors[2]),
-    text=[f"{ideal_percentages[2]}%"],
+    name="Ideal Needs",
+    marker=dict(color=reference_colors[0]),
+    text=[f"{ideal_percentages[0]}%"],
     textposition="inside",
     insidetextanchor="middle",
-    hoverinfo="none"
+    hoverinfo="none"  # Hide hover info for color labels
 ))
-
-# Add titles for the reference bars (Needs, Wants, Savings) above the bars
-fig.add_annotation(
-    x=ideal_percentages[0] / 2,  # Positioning the text just above the bar
-    y=1.05,  # Position above the bars (adjust as needed)
-    text="Needs",
-    showarrow=False,
-    font=dict(size=12, color="black"),
-    align="left"
-)
-
-fig.add_annotation(
-    x=ideal_percentages[1] / 2,
-    y=1.05,
-    text="Wants",
-    showarrow=False,
-    font=dict(size=12, color="black"),
-    align="center"
-)
-
-fig.add_annotation(
-    x=ideal_percentages[2] / 2,
-    y=1.05,
-    text="Savings",
-    showarrow=False,
-    font=dict(size=12, color="black"),
-    align="right"
-)
 
 # Customize layout to stack bars and properly align them
 fig.update_layout(
