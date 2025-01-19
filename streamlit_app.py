@@ -155,20 +155,21 @@ Finally **Savings** - how much on average goes to saving or investing of any kin
 # Apply custom styles
 set_input_styles()
 
-# Savings input
-st.markdown('<div class="input-container savings-container"><span class="input-label">Total Savings:</span>', unsafe_allow_html=True)
+# Savings input with customized label color
+st.markdown('<div class="input-container savings-container"><span class="input-label savings-label">Total Savings:</span>', unsafe_allow_html=True)
 savings_total = st.number_input("Total Savings", min_value=0, step=100, value=1000, key="savings", label_visibility="hidden")
 st.markdown('</div>', unsafe_allow_html=True)
 
-# Wants input
-st.markdown('<div class="input-container wants-container"><span class="input-label">Total Wants:</span>', unsafe_allow_html=True)
+# Wants input with customized label color
+st.markdown('<div class="input-container wants-container"><span class="input-label wants-label">Total Wants:</span>', unsafe_allow_html=True)
 wants_total = st.number_input("Total Wants", min_value=0, step=100, value=1000, key="wants", label_visibility="hidden")
 st.markdown('</div>', unsafe_allow_html=True)
 
-# Needs input
-st.markdown('<div class="input-container needs-container"><span class="input-label">Total Needs:</span>', unsafe_allow_html=True)
+# Needs input with customized label color
+st.markdown('<div class="input-container needs-container"><span class="input-label needs-label">Total Needs:</span>', unsafe_allow_html=True)
 needs_total = st.number_input("Total Needs", min_value=0, step=100, value=3000, key="needs", label_visibility="hidden")
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 
