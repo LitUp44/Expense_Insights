@@ -27,6 +27,30 @@ def categorize(value, category):
         else:
             return "high", "red"
 
+def set_input_styles():
+    st.markdown(
+        """
+        <style>
+        .savings-input input {
+            background-color: #FF9E70; 
+            color: black;
+            font-weight: bold;
+        }
+        .wants-input input {
+            background-color: #2B3348; 
+            color: black;
+            font-weight: bold;
+        }
+        .needs-input input {
+            background-color: #8F4E52;
+            color: black;
+            font-weight: bold;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
 # Function to determine the color of Wants based on Savings
 def wants_color_func(savings_cat, wants_percentage):
     if savings_cat == "low" and wants_percentage > 20:
@@ -114,10 +138,21 @@ Finally **Savings** - how much on average goes to saving or investing of any kin
 </div>
 """, unsafe_allow_html=True)
 
-# User input for savings, wants, and needs amounts (totals)
-savings_total = st.number_input("Total Savings", min_value=0, step=100, value=1000)
-wants_total = st.number_input("Total Wants", min_value=0, step=100, value=1000)
-needs_total = st.number_input("Total Needs", min_value=0, step=100, value=3000)
+# Apply custom styles
+set_input_styles()
+
+# Savings input
+st.markdown('<div class="savings-input">Total Savings:</div>', unsafe_allow_html=True)
+savings_total = st.number_input("Total Savings", min_value=0, step=100, value=1000, key="savings", label_visibility="hidden")
+
+# Wants input
+st.markdown('<div class="wants-input">Total Wants:</div>', unsafe_allow_html=True)
+wants_total = st.number_input("Total Wants", min_value=0, step=100, value=1000, key="wants", label_visibility="hidden")
+
+# Needs input
+st.markdown('<div class="needs-input">Total Needs:</div>', unsafe_allow_html=True)
+needs_total = st.number_input("Total Needs", min_value=0, step=100, value=3000, key="needs", label_visibility="hidden")
+
 
 # Calculate the total income based on the inputs
 total_income = savings_total + wants_total + needs_total
