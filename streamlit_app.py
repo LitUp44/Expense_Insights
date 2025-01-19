@@ -188,40 +188,41 @@ colors = ["green", "yellow", "red"]  # Match the colors used in your app
 # Create the figure
 fig = go.Figure()
 
-# Add the ideal distribution bar
+# Add the ideal distribution bar (stacked bar)
 fig.add_trace(go.Bar(
     x=ideal_percentages,
     y=["Ideal Distribution"],
     orientation='h',
+    name="Ideal",
     marker=dict(color=colors),
     text=[f"{p}%" for p in ideal_percentages],
     textposition="inside",
-    insidetextanchor="middle",
-    name="Ideal"
+    insidetextanchor="middle"
 ))
 
-# Add the user's actual distribution bar
+# Add the user's actual distribution bar (stacked bar)
 fig.add_trace(go.Bar(
     x=user_percentages,
     y=["Your Distribution"],
     orientation='h',
+    name="Your Distribution",
     marker=dict(color=colors, opacity=0.6),  # Slightly transparent for distinction
     text=[f"{p}%" for p in user_percentages],
     textposition="inside",
-    insidetextanchor="middle",
-    name="Yours"
+    insidetextanchor="middle"
 ))
 
-# Customize the layout
+# Customize layout to stack bars and properly align them
 fig.update_layout(
-    barmode="stack",
-    height=200,
+    barmode="stack",  # Stack the bars
+    height=300,  # Adjust height for better readability
     margin=dict(t=10, b=30, l=10, r=10),
     xaxis=dict(title="Percentage", range=[0, 100], showgrid=False),
     yaxis=dict(title="", showticklabels=True),  # Show the labels for Ideal/Yours
-    legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="center", x=0.5),
     title_text="Comparison: Ideal vs. Your Allocation",
     title_x=0.5,
+    showlegend=True,
+    legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="center", x=0.5),
 )
 
 # Display the chart in Streamlit
