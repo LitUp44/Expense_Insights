@@ -28,16 +28,17 @@ def categorize(value, category):
             return "high", "red"
 
 
-
 def set_input_styles():
     st.markdown(
         """
         <style>
         .input-container {
+            display: flex;
+            align-items: center;  /* Aligns the label and input vertically */
             padding: 5px;  /* Reduced padding */
             border-radius: 5px;
             margin-bottom: 8px;  /* Reduced bottom margin */
-            width: 200px;  /* Set a smaller width for the containers */
+            width: 150px;  /* Set a fixed width for the containers */
         }
         .savings-container {
             background-color: #FF9E70; /* Light green */
@@ -50,9 +51,9 @@ def set_input_styles():
         }
         .input-label {
             font-weight: bold;
-            margin-bottom: 3px;  /* Reduced space between label and input */
-            display: block;
+            margin-right: 10px;  /* Space between the label and the input */
             font-size: 14px;  /* Smaller font size for the labels */
+            width: 150px;  /* Set width for the labels */
         }
         .savings-label {
             color: #FFEAE6; /* Dark green */
@@ -62,6 +63,9 @@ def set_input_styles():
         }
         .needs-label {
             color: #FFEAE6; /* Steel blue */
+        }
+        .number-input {
+            width: 150px;  /* Set fixed width for the input box */
         }
         </style>
         """,
@@ -158,17 +162,17 @@ Finally **Savings** - how much on average goes to saving or investing of any kin
 # Apply custom styles
 set_input_styles()
 
-# Savings input with customized label color
+# Savings input with customized label color and smaller container
 st.markdown('<div class="input-container savings-container"><span class="input-label savings-label">Total Savings:</span>', unsafe_allow_html=True)
 savings_total = st.number_input("Total Savings", min_value=0, step=100, value=1000, key="savings", label_visibility="hidden")
 st.markdown('</div>', unsafe_allow_html=True)
 
-# Wants input with customized label color
+# Wants input with customized label color and smaller container
 st.markdown('<div class="input-container wants-container"><span class="input-label wants-label">Total Wants:</span>', unsafe_allow_html=True)
 wants_total = st.number_input("Total Wants", min_value=0, step=100, value=1000, key="wants", label_visibility="hidden")
 st.markdown('</div>', unsafe_allow_html=True)
 
-# Needs input with customized label color
+# Needs input with customized label color and smaller container
 st.markdown('<div class="input-container needs-container"><span class="input-label needs-label">Total Needs:</span>', unsafe_allow_html=True)
 needs_total = st.number_input("Total Needs", min_value=0, step=100, value=3000, key="needs", label_visibility="hidden")
 st.markdown('</div>', unsafe_allow_html=True)
