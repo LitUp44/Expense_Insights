@@ -27,28 +27,25 @@ def categorize(value, category):
         else:
             return "high", "red"
 
+
 def set_input_styles():
     st.markdown(
         """
         <style>
-        .input-container {
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-        .savings-container {
+        div[data-testid="stNumberInput"][aria-labelledby="savings-label"] {
             background-color: #FF9E70; /* Light green */
+            border-radius: 5px;
+            padding: 10px;
         }
-        .wants-container {
+        div[data-testid="stNumberInput"][aria-labelledby="wants-label"] {
             background-color: #2B3348; /* Light red */
+            border-radius: 5px;
+            padding: 10px;
         }
-        .needs-container {
+        div[data-testid="stNumberInput"][aria-labelledby="needs-label"] {
             background-color: #8F4E52; /* Light blue */
-        }
-        .input-label {
-            font-weight: bold;
-            margin-bottom: 5px;
-            display: block;
+            border-radius: 5px;
+            padding: 10px;
         }
         </style>
         """,
@@ -146,19 +143,17 @@ Finally **Savings** - how much on average goes to saving or investing of any kin
 set_input_styles()
 
 # Savings input
-st.markdown('<div class="input-container savings-container"><span class="input-label">Total Savings:</span>', unsafe_allow_html=True)
+st.markdown('<label id="savings-label" class="input-label">Total Savings:</label>', unsafe_allow_html=True)
 savings_total = st.number_input("Total Savings", min_value=0, step=100, value=1000, key="savings", label_visibility="hidden")
-st.markdown('</div>', unsafe_allow_html=True)
 
 # Wants input
-st.markdown('<div class="input-container wants-container"><span class="input-label">Total Wants:</span>', unsafe_allow_html=True)
+st.markdown('<label id="wants-label" class="input-label">Total Wants:</label>', unsafe_allow_html=True)
 wants_total = st.number_input("Total Wants", min_value=0, step=100, value=1000, key="wants", label_visibility="hidden")
-st.markdown('</div>', unsafe_allow_html=True)
 
 # Needs input
-st.markdown('<div class="input-container needs-container"><span class="input-label">Total Needs:</span>', unsafe_allow_html=True)
+st.markdown('<label id="needs-label" class="input-label">Total Needs:</label>', unsafe_allow_html=True)
 needs_total = st.number_input("Total Needs", min_value=0, step=100, value=3000, key="needs", label_visibility="hidden")
-st.markdown('</div>', unsafe_allow_html=True)
+
 
 # Calculate the total income based on the inputs
 total_income = savings_total + wants_total + needs_total
