@@ -266,7 +266,7 @@ st.markdown("### Want to understand the concepts behind financial fitness? ")
 st.markdown(
     f"""
     <div style="text-align:center;">
-        <a href="https://alignedfinances.com" target="_blank" class="link-button">
+        <a href="https://alignedfinances.com/financial-fitness" target="_blank" class="link-button">
             Learn more!
         </a>
     </div>
