@@ -107,9 +107,9 @@ Let's help you understand your budget breakdown! Simply input your average month
 
 Assume that your income gets spent three ways. Your **Needs** which is everything you **have** to spend per month. Your rent, utilities, groceries, subsciptions, pre-paid classes, etc.
 
-Your **wants** is anything you spend on variable purchases; going out, movies, travel, etc.
+Your **Wants** is anything you spend on variable purchases; going out, movies, travel, etc.
 
-Finally **saving** - how much on average goes to saving or investing of any kind. Don't worry too much if you have pre-tax money going to retirement accounts, just pick a rough number.
+Finally **Savings** - how much on average goes to saving or investing of any kind. Don't worry too much if you have pre-tax money going to retirement accounts, just pick a rough number.
 </div>
 """, unsafe_allow_html=True)
 
