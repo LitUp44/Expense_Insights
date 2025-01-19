@@ -181,8 +181,10 @@ user_percentages = [needs_percentage, wants_percentage, savings_percentage]  # R
 # Ideal percentages
 ideal_percentages = [60, 20, 20]
 
+# Categories and colors for user comparison (same as pie chart colors)
 user_colors = ["green", "yellow", "red"]  # Color scheme for user comparison bars
 
+# Categories and colors for reference (shades of green)
 reference_colors = ["lightgreen", "mediumseagreen", "darkgreen"]  # Shades of green for reference bars
 
 # Create the figure
@@ -225,10 +227,10 @@ fig.add_trace(go.Bar(
     hoverinfo="none"
 ))
 
-# Add titles for the reference bars (Needs, Wants, Savings)
+# Add titles for the reference bars (Needs, Wants, Savings) above the bars
 fig.add_annotation(
-    x=ideal_percentages[0] / 2,  # Positioning the text inside the bar
-    y=0,  # Aligning to the top of the stacked bars
+    x=ideal_percentages[0] / 2,  # Positioning the text just above the bar
+    y=1.05,  # Position above the bars (adjust as needed)
     text="Needs",
     showarrow=False,
     font=dict(size=12, color="black"),
@@ -237,7 +239,7 @@ fig.add_annotation(
 
 fig.add_annotation(
     x=ideal_percentages[1] / 2,
-    y=0,
+    y=1.05,
     text="Wants",
     showarrow=False,
     font=dict(size=12, color="black"),
@@ -246,7 +248,7 @@ fig.add_annotation(
 
 fig.add_annotation(
     x=ideal_percentages[2] / 2,
-    y=0,
+    y=1.05,
     text="Savings",
     showarrow=False,
     font=dict(size=12, color="black"),
