@@ -176,4 +176,10 @@ st.markdown(f"""
 # Display the pie chart
 st.plotly_chart(fig)
 
+# Separator above results
+st.markdown("---")
+
+# Display formatted results
+st.markdown("### Reference Values")
+
 st.image("referenceValues.png", use_container_width=False, width=700)
