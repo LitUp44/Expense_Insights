@@ -28,14 +28,16 @@ def categorize(value, category):
             return "high", "red"
 
 
+
 def set_input_styles():
     st.markdown(
         """
         <style>
         .input-container {
-            padding: 10px;
+            padding: 5px;  /* Reduced padding */
             border-radius: 5px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;  /* Reduced bottom margin */
+            width: 250px;  /* Set a smaller width for the containers */
         }
         .savings-container {
             background-color: #FF9E70; /* Light green */
@@ -48,8 +50,9 @@ def set_input_styles():
         }
         .input-label {
             font-weight: bold;
-            margin-bottom: 5px;
+            margin-bottom: 3px;  /* Reduced space between label and input */
             display: block;
+            font-size: 14px;  /* Smaller font size for the labels */
         }
         .savings-label {
             color: #FFEAE6; /* Dark green */
