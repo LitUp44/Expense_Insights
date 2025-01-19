@@ -37,7 +37,7 @@ def set_input_styles():
             padding: 5px;  /* Reduced padding */
             border-radius: 5px;
             margin-bottom: 8px;  /* Reduced bottom margin */
-            width: 250px;  /* Set a smaller width for the containers */
+            width: 200px;  /* Set a smaller width for the containers */
         }
         .savings-container {
             background-color: #FF9E70; /* Light green */
