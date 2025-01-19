@@ -229,8 +229,8 @@ fig.add_trace(go.Bar(
     y=["Your Distribution"],
     orientation='h',
     name="Your Needs",
-    marker=dict(color=user_colors[0], opacity=0.6),  # Slightly transparent for distinction
-    text=[f"{user_percentages[0]}%"],
+    marker=dict(color=needs_color, opacity=0.6),  # Slightly transparent for distinction
+    text=[f"{user_percentages[0]}%.2f"],
     textposition="inside",
     insidetextanchor="middle"
 ))
@@ -240,8 +240,8 @@ fig.add_trace(go.Bar(
     y=["Your Distribution"],
     orientation='h',
     name="Your Wants",
-    marker=dict(color=user_colors[1], opacity=0.6),
-    text=[f"{user_percentages[1]}%"],
+    marker=dict(color=wants_color, opacity=0.6),
+    text=[f"{user_percentages[1]}%.2f"],
     textposition="inside",
     insidetextanchor="middle"
 ))
@@ -251,8 +251,8 @@ fig.add_trace(go.Bar(
     y=["Your Distribution"],
     orientation='h',
     name="Your Savings",
-    marker=dict(color=user_colors[2], opacity=0.6),
-    text=[f"{user_percentages[2]}%"],
+    marker=dict(color=savings_color, opacity=0.6),
+    text=[f"{user_percentages[2]}%.2f"],
     textposition="inside",
     insidetextanchor="middle"
 ))
